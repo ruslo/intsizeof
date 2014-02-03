@@ -17,5 +17,5 @@ env:
     - ARCH=x86_64
 
 script:
-    - cmake -H. -B_builds -DCMAKE_CXX_FLAGS="-arch ${ARCH}" -DCMAKE_VERBOSE_MAKEFILE=ON
+    - cmake -H. -B_builds -DCMAKE_CXX_FLAGS="-arch ${ARCH} -std=c++11" -DCMAKE_VERBOSE_MAKEFILE=ON
     - cmake --build _builds
