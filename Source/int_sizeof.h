@@ -117,7 +117,7 @@
 # define INT_SIZEOF_WINT INT_SIZEOF_32BIT
 #elif WINT_MAX == INT64_MAX
 # define INT_SIZEOF_WINT INT_SIZEOF_64BIT
-#elif WINT_MAX == UINT8_MAX // check unsinged too (tested on gcc)
+#elif WINT_MAX == UINT8_MAX // check unsigned too (tested on gcc)
 # define INT_SIZEOF_WINT INT_SIZEOF_8BIT
 #elif WINT_MAX == UINT16_MAX
 # define INT_SIZEOF_WINT INT_SIZEOF_16BIT
