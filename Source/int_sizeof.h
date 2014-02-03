@@ -4,6 +4,8 @@
 // Copyright (c) 2014, Ruslan Baratov
 // All rights reserved.
 
+#define __STDC_LIMIT_MACROS 1 // tested on gcc
+
 #include <stdint.h> // PTRDIFF_MIN
 #include <limits.h> // CHAR_BIT
 
