@@ -11,6 +11,38 @@
 
 // http://en.cppreference.com/w/c/types/limits
 
+#ifndef INT8_MAX
+# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+#endif
+
+#ifndef INT16_MAX
+# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+#endif
+
+#ifndef INT32_MAX
+# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+#endif
+
+#ifndef INT64_MAX
+# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+#endif
+
+#ifndef UINT8_MAX
+# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+#endif
+
+#ifndef UINT16_MAX
+# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+#endif
+
+#ifndef UINT32_MAX
+# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+#endif
+
+#ifndef UINT64_MAX
+# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+#endif
+
 #define INT_SIZEOF_8BIT 8/CHAR_BIT
 #define INT_SIZEOF_16BIT 16/CHAR_BIT
 #define INT_SIZEOF_32BIT 32/CHAR_BIT
