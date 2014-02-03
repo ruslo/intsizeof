@@ -1,6 +1,14 @@
 IntSizeof
 =========
 
+| mac                                         | linux                                             |
+|---------------------------------------------|---------------------------------------------------|
+| [![Build Status][master]][repo] | [![Build Status][linux]][repo] |
+
+[master]: https://travis-ci.org/ruslo/intsizeof.png?branch=master
+[linux]: https://travis-ci.org/ruslo/intsizeof.png?branch=travis.linux
+[repo]: https://travis-ci.org/ruslo/intsizeof
+
 Sizeof of standard types (from [stdint.h and limits.h][1]) for preprocessor.
 
 ### stdint.h
