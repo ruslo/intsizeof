@@ -96,6 +96,14 @@
 # define INT_SIZEOF_WCHAR INT_SIZEOF_32BIT
 #elif WCHAR_MAX == INT64_MAX
 # define INT_SIZEOF_WCHAR INT_SIZEOF_64BIT
+#elif WCHAR_MAX == UINT8_MAX // check unsigned too (gcc cygwin)
+# define INT_SIZEOF_WCHAR INT_SIZEOF_8BIT
+#elif WCHAR_MAX == UINT16_MAX
+# define INT_SIZEOF_WCHAR INT_SIZEOF_16BIT
+#elif WCHAR_MAX == UINT32_MAX
+# define INT_SIZEOF_WCHAR INT_SIZEOF_32BIT
+#elif WCHAR_MAX == UINT64_MAX
+# define INT_SIZEOF_WCHAR INT_SIZEOF_64BIT
 #else
 # error "Please report your weird platform to github.com/ruslo/intsizeof"
 #endif
