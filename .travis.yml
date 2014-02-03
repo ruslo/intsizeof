@@ -12,5 +12,10 @@ install:
     - cmake -HCMake-ios.universal -B_builds/cmake -DCMAKE_USE_SYSTEM_CURL=YES -DCMAKE_BUILD_TYPE=Release
     - cmake --build _builds/cmake --target install
 
+env:
+    - ARCH=i386
+    - ARCH=x86_64
+
 script:
-    - cmake --version
+    - cmake -H. -B_builds -DCMAKE_CXX_FLAGS="-arch ${ARCH}" -DCMAKE_VERBOSE_MAKEFILE=ON
+    - cmake --build _builds
