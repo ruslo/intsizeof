@@ -54,7 +54,7 @@ int main() {
 In this case project need to link `int_sizeof` target:
 ```bash
 > cat CMakeLists.txt
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 project(Boo)
 
 find_package(IntSizeof CONFIG REQUIRED)
@@ -62,14 +62,13 @@ find_package(IntSizeof CONFIG REQUIRED)
 add_executable(boo boo.cpp)
 target_link_libraries(boo int_sizeof)
 ```
-* Note that target is INTERFACE library. CMake minimum version is 3.0 (not yet released, build it from master,
-see [travis config][2]).
+* Note that target is INTERFACE library. CMake minimum version is 3.0.
 
 # Usage (Hunter)
 `IntSizeof` can be installed by [hunter][3] package manager:
 ```bash
 > cat CMakeLists.txt
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 project(Boo)
 
 include(HunterGate.cmake)
