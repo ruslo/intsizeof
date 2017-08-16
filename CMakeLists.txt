@@ -1,38 +1,49 @@
-# Copyright (c) 2014, Ruslan Baratov
+# Copyright (c) 2014-2017, Ruslan Baratov
 # All rights reserved.
 
-cmake_minimum_required(VERSION 2.8)
-project(IntSizeof)
+cmake_minimum_required(VERSION 3.0)
+project(intsizeof)
 
-include_directories("./Source")
+option(INTSIZEOF_BUILD_TESTS "Build tests" OFF)
 
-add_library(int_sizeof INTERFACE)
+###
+# Installation (https://github.com/forexample/package-example)
 
-# Test is static, not need to run executable, only build
-add_executable(test_sizeof "Source/test.cpp")
+set(config_install_dir "lib/cmake/${PROJECT_NAME}")
+set(include_install_dir "include")
 
-# Install config
-set(INCL_DEST include)
-set(CONF_DEST lib/cmake/IntSizeof)
+set(generated_dir "${CMAKE_CURRENT_BINARY_DIR}/generated")
+
+set(version_config "${generated_dir}/${PROJECT_NAME}ConfigVersion.cmake")
+set(project_config "${generated_dir}/${PROJECT_NAME}Config.cmake")
+set(targets_export_name "${PROJECT_NAME}Targets")
+set(namespace "${PROJECT_NAME}::")
 
 include(CMakePackageConfigHelpers)
 
-target_include_directories(
-    int_sizeof
-    INTERFACE
-    "$<INSTALL_INTERFACE:${INCL_DEST}>"
-)
-
-set(config "${CMAKE_CURRENT_BINARY_DIR}/IntSizeofConfig.cmake")
-
+# Use variables:
+#   * targets_export_name
+#   * PROJECT_NAME
 configure_package_config_file(
-    "IntSizeofConfig.cmake.in"
-    "${config}"
-    INSTALL_DESTINATION ${CONF_DEST}
-    PATH_VARS CONF_DEST
+    "cmake/Config.cmake.in"
+    "${project_config}"
+    INSTALL_DESTINATION "${config_install_dir}"
 )
 
-install(TARGETS int_sizeof EXPORT IntSizeofTargets)
-install(EXPORT IntSizeofTargets DESTINATION ${CONF_DEST})
-install(FILES Source/int_sizeof.h DESTINATION ${INCL_DEST})
-install(FILES "${config}" DESTINATION ${CONF_DEST})
+install(
+    FILES "${project_config}" "${version_config}"
+    DESTINATION "${config_install_dir}"
+)
+
+install(
+    EXPORT "${targets_export_name}"
+    NAMESPACE "${namespace}"
+    DESTINATION "${config_install_dir}"
+)
+
+add_subdirectory(lib)
+
+if(INTSIZEOF_BUILD_TESTS)
+  enable_testing()
+  add_subdirectory(test)
+endif()
