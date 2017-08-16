@@ -12,35 +12,35 @@ IntSizeof
 Sizeof of standard types (from [stdint.h and limits.h][1]) for preprocessor.
 
 ### stdint.h
-* INT_SIZEOF_PTRDIFF == sizeof(ptrdiff_t)
-* INT_SIZEOF_SIZE == sizeof(size_t)
-* INT_SIZEOF_SIG_ATOMIC == sizeof(sig_atomic_t)
-* INT_SIZEOF_WCHAR == sizeof(wchar_t)
-* INT_SIZEOF_WINT == sizeof(wint_t)
-* INT_SIZEOF_CHAR == sizeof(char)
+* INTSIZEOF_PTRDIFF == sizeof(ptrdiff_t)
+* INTSIZEOF_SIZE == sizeof(size_t)
+* INTSIZEOF_SIG_ATOMIC == sizeof(sig_atomic_t)
+* INTSIZEOF_WCHAR == sizeof(wchar_t)
+* INTSIZEOF_WINT == sizeof(wint_t)
+* INTSIZEOF_CHAR == sizeof(char)
 
 ### limits.h (signed)
-* INT_SIZEOF_SCHAR == sizeof(signed char)
-* INT_SIZEOF_SHRT == sizeof(signed short)
-* INT_SIZEOF_INT == sizeof(int)
-* INT_SIZEOF_LONG == sizeof(long)
-* INT_SIZEOF_LLONG == sizeof(long long)
+* INTSIZEOF_SCHAR == sizeof(signed char)
+* INTSIZEOF_SHRT == sizeof(signed short)
+* INTSIZEOF_INT == sizeof(int)
+* INTSIZEOF_LONG == sizeof(long)
+* INTSIZEOF_LLONG == sizeof(long long)
 
 ### limits.h (unsigned)
-* INT_SIZEOF_UCHAR == sizeof(unsigned char)
-* INT_SIZEOF_USHRT == sizeof(unsigned short)
-* INT_SIZEOF_UINT == sizeof(unsigned int)
-* INT_SIZEOF_ULONG == sizeof(unsigned long)
-* INT_SIZEOF_ULLONG == sizeof(unsigned long long)
+* INTSIZEOF_UCHAR == sizeof(unsigned char)
+* INTSIZEOF_USHRT == sizeof(unsigned short)
+* INTSIZEOF_UINT == sizeof(unsigned int)
+* INTSIZEOF_ULONG == sizeof(unsigned long)
+* INTSIZEOF_ULLONG == sizeof(unsigned long long)
 
 # Usage
 `IntSizeof` is header only/one file library, usage example:
 ```cpp
-#include <int_sizeof.h> // INT_SIZEOF_LONG
+#include <intsizeof.h> // INTSIZEOF_LONG
 #include <iostream> // std::cout
 
 int main() {
-#if INT_SIZEOF_LONG == 4
+#if INTSIZEOF_LONG == 4
   std::cout << "sizeof long is 4" << std::endl;
 #else
   std::cout << "sizeof long is not 4" << std::endl;
@@ -51,16 +51,16 @@ int main() {
 
 # Usage (CMake)
 `IntSizeof` library can be installed and imported to other project by `find_package(IntSizeof CONFIG)` command.
-In this case project need to link `int_sizeof` target:
+In this case project need to link `intsizeof` target:
 ```bash
 > cat CMakeLists.txt
 cmake_minimum_required(VERSION 3.0)
 project(Boo)
 
-find_package(IntSizeof CONFIG REQUIRED)
+find_package(intsizeof CONFIG REQUIRED)
 
 add_executable(boo boo.cpp)
-target_link_libraries(boo int_sizeof)
+target_link_libraries(boo PUBLIC intsizeof::intsizeof)
 ```
 * Note that target is INTERFACE library. CMake minimum version is 3.0.
 
@@ -76,7 +76,7 @@ hunter_add_package(IntSizeof)
 
 find_package(IntSizeof CONFIG REQUIRED)
 add_library(boo boo.cpp)
-target_link_libraries(boo int_sizeof)
+target_link_libraries(boo PUBLIC intsizeof::intsizeof)
 ```
 Gate file can be found [here][4].
 
