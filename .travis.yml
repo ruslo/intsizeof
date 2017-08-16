@@ -1,21 +1,110 @@
-language:
-    - objective-c
+# OSX/Linux (https://github.com/travis-ci-tester/toolchain-table)
 
-before_install:
-    - brew update
+language:
+  - cpp
+
+# Container-based infrastructure (Linux)
+# * https://docs.travis-ci.com/user/migrating-from-legacy/#How-can-I-use-container-based-infrastructure%3F
+sudo:
+  - false
+
+dist:
+  - trusty
+
+matrix:
+  include:
+    # Linux {
+    - os: linux
+      env: CONFIG=Release TOOLCHAIN=clang-libstdcxx
+    - os: linux
+      env: CONFIG=Release TOOLCHAIN=gcc
+    - os: linux
+      env: CONFIG=Release TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon
+    - os: linux
+      env: CONFIG=Release TOOLCHAIN=analyze
+    - os: linux
+      env: CONFIG=Release TOOLCHAIN=sanitize-address
+    - os: linux
+      env: CONFIG=Release TOOLCHAIN=sanitize-leak
+
+    - os: linux
+      env: CONFIG=Debug TOOLCHAIN=clang-libstdcxx
+    - os: linux
+      env: CONFIG=Debug TOOLCHAIN=gcc
+    - os: linux
+      env: CONFIG=Debug TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon
+    - os: linux
+      env: CONFIG=Debug TOOLCHAIN=analyze
+    - os: linux
+      env: CONFIG=Debug TOOLCHAIN=sanitize-address
+    - os: linux
+      env: CONFIG=Debug TOOLCHAIN=sanitize-leak
+    # }
+
+    # OSX {
+    - os: osx
+      env: CONFIG=Release TOOLCHAIN=libcxx
+    - os: osx
+      env: CONFIG=Release TOOLCHAIN=clang-libstdcxx
+    - os: osx
+      env: CONFIG=Release TOOLCHAIN=osx-10-11
+    - os: osx
+      env: CONFIG=Release TOOLCHAIN=ios-nocodesign-9-3
+    - os: osx
+      env: CONFIG=Release TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon
+    - os: osx
+      env: CONFIG=Release TOOLCHAIN=analyze
+
+    - os: osx
+      env: CONFIG=Debug TOOLCHAIN=libcxx
+    - os: osx
+      env: CONFIG=Debug TOOLCHAIN=clang-libstdcxx
+    - os: osx
+      env: CONFIG=Debug TOOLCHAIN=osx-10-11
+    - os: osx
+      env: CONFIG=Debug TOOLCHAIN=ios-nocodesign-9-3
+    - os: osx
+      env: CONFIG=Debug TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon
+    - os: osx
+      env: CONFIG=Debug TOOLCHAIN=analyze
+    # }
 
 install:
-    - brew install python3
-    - wget https://github.com/ruslo/CMake/archive/ios.universal.tar.gz
-    - openssl sha1 ios.universal.tar.gz
-    - tar xf ios.universal.tar.gz
-    - cmake -HCMake-ios.universal -B_builds/cmake -DCMAKE_USE_SYSTEM_CURL=YES -DCMAKE_BUILD_TYPE=Release
-    - cmake --build _builds/cmake --target install
+  # Info about OS
+  - uname -a
 
-env:
-    - ARCH=i386
-    - ARCH=x86_64
+  # Disable autoupdate
+  # * https://github.com/Homebrew/brew/blob/7d31a70373edae4d8e78d91a4cbc05324bebc3ba/Library/Homebrew/manpages/brew.1.md.erb#L202
+  - export HOMEBREW_NO_AUTO_UPDATE=1
+
+  # Install Python 3
+  - if [[ "`uname`" == "Darwin" ]]; then travis_retry brew install python3; fi
+
+  # Install Python package 'requests'
+  # 'easy_install3' is not installed by 'brew install python3' on OS X 10.9 Maverick
+  - if [[ "`uname`" == "Darwin" ]]; then pip3 install requests; fi
+  - if [[ "`uname`" == "Linux" ]]; then travis_retry pip3 install --user requests; fi
+
+  # Install latest Polly toolchains and scripts
+  - wget https://github.com/ruslo/polly/archive/master.zip
+  - unzip master.zip
+  - POLLY_ROOT="`pwd`/polly-master"
+  - export PATH="${POLLY_ROOT}/bin:${PATH}"
+
+  # Install dependencies (CMake, Android NDK)
+  - install-ci-dependencies.py
+
+  # Tune locations
+  - export PATH="`pwd`/_ci/cmake/bin:${PATH}"
+
+  # Installed if toolchain is Android (otherwise directory doesn't exist)
+  - export ANDROID_NDK_r10e="`pwd`/_ci/android-ndk-r10e"
+  - export ANDROID_NDK_r11c="`pwd`/_ci/android-ndk-r11c"
 
 script:
-    - cmake -H. -B_builds -DCMAKE_CXX_FLAGS="-arch ${ARCH} -std=c++11" -DCMAKE_VERBOSE_MAKEFILE=ON
-    - cmake --build _builds
+  - polly.py --toolchain ${TOOLCHAIN} --verbose --config ${CONFIG} --test --install
+
+# https://docs.travis-ci.com/user/customizing-the-build/#Whitelisting-or-blacklisting-branches
+branches:
+  except:
+    - /^pr\..*/
