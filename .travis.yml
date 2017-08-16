@@ -102,7 +102,7 @@ install:
   - export ANDROID_NDK_r11c="`pwd`/_ci/android-ndk-r11c"
 
 script:
-  - polly.py --toolchain ${TOOLCHAIN} --verbose --config ${CONFIG} --test --install
+  - polly.py --toolchain ${TOOLCHAIN} --verbose --config ${CONFIG} --test --install --fwd INTSIZEOF_BUILD_TESTS=ON
 
 # https://docs.travis-ci.com/user/customizing-the-build/#Whitelisting-or-blacklisting-branches
 branches:
