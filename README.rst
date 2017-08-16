@@ -50,3 +50,19 @@ Usage
   find_package(Intsizeof CONFIG REQUIRED)
   add_library(boo boo.cpp)
   target_link_libraries(boo PUBLIC intsizeof::intsizeof)
+
+C++ example:
+
+.. code-block:: cpp
+
+  #include <intsizeof.h> // INTSIZEOF_LONG
+  #include <iostream> // std::cout
+
+  int main() {
+  #if INTSIZEOF_LONG == 4
+    std::cout << "sizeof long is 4" << std::endl;
+  #else
+    std::cout << "sizeof long is not 4" << std::endl;
+  #endif
+    return EXIT_SUCCESS;
+  }
