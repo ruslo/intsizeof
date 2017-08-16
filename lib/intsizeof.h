@@ -1,7 +1,7 @@
-#ifndef INT_SIZEOF_H_
-#define INT_SIZEOF_H_
+#ifndef INTSIZEOF_H_
+#define INTSIZEOF_H_
 
-// Copyright (c) 2014, Ruslan Baratov
+// Copyright (c) 2014-2017, Ruslan Baratov
 // All rights reserved.
 
 #define __STDC_LIMIT_MACROS 1 // tested on gcc
@@ -272,4 +272,4 @@
 # error "Please report your weird platform to github.com/ruslo/intsizeof"
 #endif
 
-#endif // INT_SIZEOF_H_
+#endif // INTSIZEOF_H_
