@@ -58,7 +58,7 @@
 #elif PTRDIFF_MAX == INT64_MAX
 # define INTSIZEOF_PTRDIFF INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // size_t: SIZE_MAX
@@ -71,7 +71,7 @@
 #elif SIZE_MAX == UINT64_MAX
 # define INTSIZEOF_SIZE INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // sig_atomic_t: SIG_ATOMIC_MIN, SIG_ATOMIC_MAX
@@ -84,7 +84,7 @@
 #elif SIG_ATOMIC_MAX == INT64_MAX
 # define INTSIZEOF_SIG_ATOMIC INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // wchar_t: WCHAR_MIN, WCHAR_MAX
@@ -105,7 +105,7 @@
 #elif WCHAR_MAX == UINT64_MAX
 # define INTSIZEOF_WCHAR INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // wint_t: WINT_MIN, WINT_MAX
@@ -126,7 +126,7 @@
 #elif WINT_MAX == UINT64_MAX
 # define INTSIZEOF_WINT INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // char: CHAR_MIN, CHAR_MAX
@@ -139,7 +139,7 @@
 #elif CHAR_MAX == INT64_MAX
 # define INTSIZEOF_CHAR INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // signed char: SCHAR_MIN, SCHAR_MAX
@@ -152,7 +152,7 @@
 #elif SCHAR_MAX == INT64_MAX
 # define INTSIZEOF_SCHAR INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // signed short: SHRT_MIN, SHRT_MAX
@@ -165,7 +165,7 @@
 #elif SHRT_MAX == INT64_MAX
 # define INTSIZEOF_SHRT INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // int: INT_MIN, INT_MAX
@@ -178,7 +178,7 @@
 #elif INT_MAX == INT64_MAX
 # define INTSIZEOF_INT INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // long: LONG_MIN, LONG_MAX
@@ -191,7 +191,7 @@
 #elif LONG_MAX == INT64_MAX
 # define INTSIZEOF_LONG INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // long long: LLONG_MIN, LLONG_MAX
@@ -204,7 +204,7 @@
 #elif LLONG_MAX == INT64_MAX
 # define INTSIZEOF_LLONG INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // unsigned char: UCHAR_MIN, UCHAR_MAX
@@ -217,7 +217,7 @@
 #elif UCHAR_MAX == UINT64_MAX
 # define INTSIZEOF_UCHAR INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // unsigned short: USHRT_MIN, USHRT_MAX
@@ -230,7 +230,7 @@
 #elif USHRT_MAX == UINT64_MAX
 # define INTSIZEOF_USHRT INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // unsigned int: UINT_MIN, UINT_MAX
@@ -243,7 +243,7 @@
 #elif UINT_MAX == UINT64_MAX
 # define INTSIZEOF_UINT INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // unsigned long: ULONG_MIN, ULONG_MAX
@@ -256,7 +256,7 @@
 #elif ULONG_MAX == UINT64_MAX
 # define INTSIZEOF_ULONG INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 // unsigned long long: ULLONG_MIN, ULLONG_MAX
@@ -269,7 +269,7 @@
 #elif ULLONG_MAX == UINT64_MAX
 # define INTSIZEOF_ULLONG INTSIZEOF_64BIT
 #else
-# error "Please report your weird platform to github.com/ruslo/intsizeof"
+# error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
 
 #endif // INTSIZEOF_H_
