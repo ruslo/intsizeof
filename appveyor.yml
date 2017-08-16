@@ -26,8 +26,10 @@ environment:
     - TOOLCHAIN: "vs-14-2015"
       CONFIG: Release
 
-    - TOOLCHAIN: "vs-9-2008"
-      CONFIG: Release
+    # 'stdint.h' not found:
+    # * https://ci.appveyor.com/project/ruslo/intsizeof/build/1.0.2/job/3f47o6w2yji60qu5
+    # - TOOLCHAIN: "vs-9-2008"
+    #   CONFIG: Release
 
     - TOOLCHAIN: "mingw"
       CONFIG: Release
@@ -59,8 +61,10 @@ environment:
     - TOOLCHAIN: "vs-14-2015"
       CONFIG: Debug
 
-    - TOOLCHAIN: "vs-9-2008"
-      CONFIG: Debug
+    # 'stdint.h' not found:
+    # * https://ci.appveyor.com/project/ruslo/intsizeof/build/1.0.2/job/3f47o6w2yji60qu5
+    # - TOOLCHAIN: "vs-9-2008"
+    #   CONFIG: Debug
 
     - TOOLCHAIN: "mingw"
       CONFIG: Debug
