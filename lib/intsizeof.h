@@ -138,6 +138,14 @@
 # define INTSIZEOF_CHAR INTSIZEOF_32BIT
 #elif CHAR_MAX == INT64_MAX
 # define INTSIZEOF_CHAR INTSIZEOF_64BIT
+#elif CHAR_MAX == UINT8_MAX // check unsigned too (GCC + Android)
+# define INTSIZEOF_CHAR INTSIZEOF_8BIT
+#elif CHAR_MAX == UINT16_MAX
+# define INTSIZEOF_CHAR INTSIZEOF_16BIT
+#elif CHAR_MAX == UINT32_MAX
+# define INTSIZEOF_CHAR INTSIZEOF_32BIT
+#elif CHAR_MAX == UINT64_MAX
+# define INTSIZEOF_CHAR INTSIZEOF_64BIT
 #else
 # error "Please report error to https://github.com/ruslo/intsizeof/issues"
 #endif
