@@ -3,6 +3,9 @@ target_include_directories(
     intsizeof INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
 )
 
+# https://stackoverflow.com/a/3233069/2288008
+target_compile_definitions(intsizeof INTERFACE "__STDC_LIMIT_MACROS")
+
 install(
     TARGETS intsizeof
     EXPORT "${targets_export_name}"
