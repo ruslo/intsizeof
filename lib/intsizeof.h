@@ -10,35 +10,39 @@
 // http://en.cppreference.com/w/c/types/limits
 
 #ifndef INT8_MAX
-# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+# error "INT8_MAX is not defined in stdint.h. Compiler break C standard ISO/IEC 9899:2011 7.20.2. See https://github.com/ruslo/intsizeof#hints"
 #endif
 
 #ifndef INT16_MAX
-# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+# error "INT16_MAX is not defined in stdint.h. Compiler break C standard ISO/IEC 9899:2011 7.20.2. See https://github.com/ruslo/intsizeof#hints"
 #endif
 
 #ifndef INT32_MAX
-# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+# error "INT32_MAX is not defined in stdint.h. Compiler break C standard ISO/IEC 9899:2011 7.20.2. See https://github.com/ruslo/intsizeof#hints"
 #endif
 
 #ifndef INT64_MAX
-# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+# error "INT64_MAX is not defined in stdint.h. Compiler break C standard ISO/IEC 9899:2011 7.20.2. See https://github.com/ruslo/intsizeof#hints"
 #endif
 
 #ifndef UINT8_MAX
-# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+# error "UINT8_MAX is not defined in stdint.h. Compiler break C standard ISO/IEC 9899:2011 7.20.2. See https://github.com/ruslo/intsizeof#hints"
 #endif
 
 #ifndef UINT16_MAX
-# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+# error "UINT16_MAX is not defined in stdint.h. Compiler break C standard ISO/IEC 9899:2011 7.20.2. See https://github.com/ruslo/intsizeof#hints"
 #endif
 
 #ifndef UINT32_MAX
-# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+# error "UINT32_MAX is not defined in stdint.h. Compiler break C standard ISO/IEC 9899:2011 7.20.2. See https://github.com/ruslo/intsizeof#hints"
 #endif
 
 #ifndef UINT64_MAX
-# error "Compiler break C standard ISO/IEC 9899:2011 7.20.2"
+# error "UINT64_MAX is not defined in stdint.h. Compiler break C standard ISO/IEC 9899:2011 7.20.2. See https://github.com/ruslo/intsizeof#hints"
+#endif
+
+#ifndef LLONG_MAX
+# error "LLONG_MAX is not defined in limits.h. Compiler break C standard ISO/IEC 9899:2011 5.2.4.2.1. See https://github.com/ruslo/intsizeof#hints"
 #endif
 
 #define INTSIZEOF_8BIT 8/CHAR_BIT
