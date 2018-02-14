@@ -66,3 +66,10 @@ C++ example:
   #endif
     return EXIT_SUCCESS;
   }
+
+Hints
+~~~~~
+
+``C11`` draft:
+
+* http://port70.net/~nsz/c/c11/
